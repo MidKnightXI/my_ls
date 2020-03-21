@@ -13,6 +13,7 @@ int my_strlen(char *str)
     }
     return i;
 }
+
 int scan_arg(char *str)
 {
     for (int i = 1; str[i] != '\0'; i++) {
@@ -29,6 +30,7 @@ int scan_arg(char *str)
     }
     return 0;
 }
+
 void choose_rule(int ac, char **av, int i)
 {
     int n = my_strlen(av[1]);
@@ -44,6 +46,7 @@ void choose_rule(int ac, char **av, int i)
         my_ls(av[i]);
     }
 }
+
 int scan_flag(int ac, char **av)
 {
     for (int i = 1; i < ac; i++) {

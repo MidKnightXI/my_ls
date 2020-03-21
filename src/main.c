@@ -4,16 +4,9 @@
 ** File description:
 ** main.c
 */
-#include "./include/my.h"
-#include <stdio.h>
-#include <sys/types.h>
-#include <dirent.h>
-#include <sys/stat.h>
-#include <time.h>
-#include <stdlib.h>
-#include <fcntl.h>
+#include "my.h"
 
-int check_file(DIR *repo, struct dirent *readen_file, char *str)
+int check_file(DIR *repo, char *str)
 {
     struct stat check;
 
@@ -43,13 +36,14 @@ int work_ls(DIR *repo, struct dirent *readen_file)
         my_putstr("ERROR: can't close directory\n");
         exit(84);
     }
+    return 0;
 }
 int my_ls(char *str)
 {
     DIR *repo = opendir(str);
     struct dirent* readen_file = NULL;
 
-    check_file(repo, readen_file, str);
+    check_file(repo, str);
     work_ls(repo, readen_file);
     return 0;
 }
